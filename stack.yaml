@@ -1,0 +1,8 @@
+name: serverless-api
+template: ./template/
+kind: Stack
+backend: aws-backend
+variables:
+  api_name: 'my-cdev-api'
+  lambda_function_name: 'my-cdev-func'
+  region: {{ .project.variables.region }}
