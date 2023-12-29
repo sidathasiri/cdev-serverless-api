@@ -13,7 +13,7 @@ units:
       function_name: {{ .variables.lambda_function_name }}
       handler: 'index.handler'
       runtime: "nodejs18.x"
-      source_path: "./"
+      source_path: "../../../src"
 
   # - name: APIGateway
   #   type: tfmodule
