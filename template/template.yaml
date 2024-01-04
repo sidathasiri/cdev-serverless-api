@@ -12,21 +12,28 @@ units:
     inputs:
       function_name: {{ .variables.lambda_function_name }}
       handler: 'index.handler'
-      runtime: "nodejs18.x"
-      source_path: "../../../src"
+      runtime: 'nodejs18.x'
+      source_path: {{ templatePath }}/src
+      publish: true
+      allowed_triggers:
+        AllowExecutionFromAPIGateway:
+          service: "apigateway"
+          source_arn: "arn:aws:execute-api:us-east-1:{{ .variables.account_id }}:*/*/*/"
+      
 
-  # - name: APIGateway
-  #   type: tfmodule
-  #   providers: *provider_aws
-  #   source: terraform-aws-modules/apigateway-v2/aws
-  #   inputs:
-  #     name: {{ .variables.api_name }}
-  #     protocol_type: 'HTTP'
-  #     create_api_domain_name: false
-  #     create_routes_and_integrations: true
-  #     create_vpc_link: false
-  #     integrations:
-  #       'GET /':
-  #         lambda_arn: 'arn:aws:lambda:us-east-1:826406658508:function:my-func'
-  #         payload_format_version: '2.0'
-  #         timeout_milliseconds: 3000
+  - name: APIGateway
+    type: tfmodule
+    providers: *provider_aws
+    source: terraform-aws-modules/apigateway-v2/aws
+    inputs:
+      name: {{ .variables.api_name }}
+      protocol_type: 'HTTP'
+      create_api_domain_name: false
+      create_routes_and_integrations: true
+      create_vpc_link: false
+      integrations:
+        'GET /':
+          lambda_arn:
+            {{ remoteState "this.LambdaHandler.lambda_function_arn" }}
+          payload_format_version: '2.0'
+          timeout_milliseconds: 3000

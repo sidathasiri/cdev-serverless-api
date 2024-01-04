@@ -6,3 +6,4 @@ variables:
   api_name: 'my-cdev-api'
   lambda_function_name: 'my-cdev-func'
   region: {{ .project.variables.region }}
+  account_id: {{ .project.variables.account_id }}
