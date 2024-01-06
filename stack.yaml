@@ -3,7 +3,7 @@ template: ./template/
 kind: Stack
 backend: aws-backend
 variables:
-  api_name: 'my-cdev-api'
-  lambda_function_name: 'my-cdev-func'
+  api_name: {{ .project.variables.api_name }}
+  lambda_function_name: {{ .project.variables.lambda_function_name }}
   region: {{ .project.variables.region }}
   account_id: {{ .project.variables.account_id }}

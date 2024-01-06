@@ -5,8 +5,6 @@ variables:
   organization: my-organization
   region: us-east-1
   state_bucket_name: cluster-dev-state
-  account_id: <your-account-id>
-# exports:
-#   AWS_PROFILE: <aws_profile>
-#  CDEV_TF_BINARY: /usr/local/bin/terraform-0.14.9 # optional set of TF version
-
+  account_id: 123456789
+  api_name: my-cdev-serverless-api
+  lambda_function_name: my-cdev-function
