@@ -1,11 +1,11 @@
 # cdev-serverless-api
-This Cluster.dev template creates a Serverless API on AWS cloud using API Gateway and Lambda a function
+This Cluster.dev template creates a Serverless API on AWS cloud using API Gateway and a Lambda function
 
 ## Prerequisites
 - Terraform version 13+
 - AWS account
 - AWS CLI installed
-- Cluster.dev client installed
+- [Cluster.dev client](https://docs.cluster.dev/installation-upgrade/) installed
 
 ## How to Use?
 1. [Configure access to AWS](https://docs.cluster.dev/examples-aws-eks/#authentication) and export required variables.
