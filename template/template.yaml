@@ -20,9 +20,9 @@ units:
           service: "apigateway"
           source_arn: "arn:aws:execute-api:us-east-1:{{ .variables.account_id }}:*/*/*/"
       
-
   - name: APIGateway
     type: tfmodule
+    depends_on: this.LambdaHandler
     providers: *provider_aws
     source: terraform-aws-modules/apigateway-v2/aws
     inputs:
@@ -37,3 +37,9 @@ units:
             {{ remoteState "this.LambdaHandler.lambda_function_arn" }}
           payload_format_version: '2.0'
           timeout_milliseconds: 3000
+  
+  - name: outputs
+    type: printer
+    depends_on: this.APIGateway
+    outputs:
+      api_endpoint: {{ remoteState "this.APIGateway.apigatewayv2_api_api_endpoint" }}
