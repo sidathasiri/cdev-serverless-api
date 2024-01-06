@@ -1,4 +1,4 @@
-# cdev-serverless-api
+# Cluster.dev Serverless API
 This Cluster.dev template creates a Serverless API on AWS cloud using API Gateway and a Lambda function
 
 ## Prerequisites
