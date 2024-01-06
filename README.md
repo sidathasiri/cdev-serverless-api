@@ -17,5 +17,5 @@ aws s3 mb s3://<bucket-name>
 ```
 cdev project create https://github.com/sidathasiri/cdev-serverless-api --interactive
 ```
-4. Run cdev plan.
-5. Run cdev apply.
+4. Run `cdev plan`.
+5. Run `cdev apply`.
