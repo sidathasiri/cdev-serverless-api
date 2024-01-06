@@ -1,0 +1,10 @@
+name: /{ .name }/
+kind: Project
+backend: aws-backend
+variables:
+  organization: /{ .organization }/
+  region: /{ .region }/
+  state_bucket_name: /{ .bucket_name }/
+  account_id: /{ .account_id }/
+  api_name: /{ .api_name }/
+  lambda_function_name: /{ .function_name }/
